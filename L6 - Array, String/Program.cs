@@ -1,19 +1,21 @@
 ﻿using System;
 using System.Linq;
+using System.Text;
+
 namespace LessonL6
 {
     class LessonL6
     {
         public static void Main(string[] args)
         {
-            string[] carModelsArray = new[] { "Mazda", "Toyota", "Ferrari", "Volvo" };
-            string[,] testMarksArray = new string[3, 2] { { "Dosha", "10" }, { "Dimas", "9" }, { "Emil", "5" } };
-            string assigment = "I am working on, assigment";
-            var assigmentArray = assigment.Split(' '); //Split
+            string[] carModelsArray = new[] { "Mazda", "Toyota", "Ferrari", "Volvo" }; // One-DImensional Array
+            string[,] testMarksArray = new string[3, 2] { { "Dosha", "10" }, { "Dimas", "9" }, { "Emil", "5" } }; //Multi-Dimensional Array
+            string assignment = "I am working on, assigment";
+            var assignmentArray = assignment.Split(' '); //Split
 
-            var splitAssigmentArray = assigment.Split(',');
+            var splitAssignmentArray = assignment.Split(',');
 
-            var removedIAssigment = assigment.Remove(1); //Remove
+            var removedIAssignment = assignment.Remove(1); //Remove
 
             var numberOfCars = carModelsArray.Count(); //1st Methode Use
             Console.WriteLine(numberOfCars);
@@ -36,17 +38,31 @@ namespace LessonL6
                 Console.WriteLine(testMarks);
             }
 
-            foreach (var assigmentt in assigmentArray)
+            foreach (var assignmentt in assignmentArray)
             {
-                Console.WriteLine(assigmentt);
+                Console.WriteLine(assignmentt);
             }
 
-            foreach (var splitAssigment in splitAssigmentArray)
+            foreach (var splitAssignment in splitAssignmentArray)
             {
-                Console.WriteLine(splitAssigment);
+                Console.WriteLine(splitAssignment);
             }
 
-            Console.WriteLine(removedIAssigment);
+            Console.WriteLine(removedIAssignment);
+
+            ///String Builder
+            StringBuilder cars = new StringBuilder("Mercedes", 20); //Maximum capacity of the builder, it will automaticaly double if full.
+
+            cars.AppendLine(" Benz");
+            cars.Append("Mercedes");
+            cars.AppendLine(" S Model");
+
+            cars.Remove(4, 4);
+            cars.Replace("Mercedes", "Audi");
+
+            var goodCar = cars.ToString();
+            Console.WriteLine(goodCar);
+            ///
 
         }
     }
